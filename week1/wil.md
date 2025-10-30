@@ -1,5 +1,20 @@
 <img width="845" height="240" alt="Image" src="https://github.com/user-attachments/assets/8e3ab399-6e24-486f-9d58-d6cacbe344cc" />
 
+***
+상품 기능
+- 상품 정보 등록: POST, /items
+- 상품 목록 조회: GET, /items
+- 개별 상품 정보 상세 조회: GET, /items{itemsID}
+- 상품 정보 수정: PATCT, /items{itemsID}
+- 상품 삭제: DELETE, /items{itemsID}
+
+주문 기능
+- 주문 정보 생성: POST, /orders
+- 주문 목록 조회: GET, /orders
+- 개별 주문 정보 상세 조회: GET, /orders{ordersID}
+- 주문 취소: DELETE, /orders{ordersID}
+
+***
  백엔드 정규 스터디 1주차 요약
 
 주제: 웹의 소통 방식, HTTP와 REST API
