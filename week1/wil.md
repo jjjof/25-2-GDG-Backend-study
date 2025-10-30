@@ -1,4 +1,6 @@
-﻿백엔드 정규 스터디 1주차 요약
+<img width="845" height="240" alt="Image" src="https://github.com/user-attachments/assets/8e3ab399-6e24-486f-9d58-d6cacbe344cc" />
+ -----------------------------------------------------------
+ 백엔드 정규 스터디 1주차 요약
 
 주제: 웹의 소통 방식, HTTP와 REST API
 1. 웹이란?
