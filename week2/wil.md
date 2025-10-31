@@ -15,7 +15,7 @@
 - DTO를 통해 Service와 데이터 교환
 - 주요 어노테이션: @Controller, @RestController, @RequestMapping, @RequestBody
 - 요청/응답 데이터는 JSON 포맷 사용상태 코드 예시:200 OK, 201 Created, 204 No Content, 400 Bad Request, 404 Not Found, 500 Internal Server Error
-패키지 구조:
+)패키지 구조:
 - 계층형 구조: 기능별 폴더 분리 (controller, service, repository)
 - 도메인형 구조: 도메인 단위로 통합 관리 → 유지보수 유리
 
@@ -43,4 +43,5 @@ DI 방식:
 - 생성자 주입: 가장 권장됨 (@Autowired, @RequiredArgsConstructor)
 - 필드 주입: 간단하지만 테스트 어려움
 - Setter 주입: 런타임 변경 가능, 불안정
+
 
