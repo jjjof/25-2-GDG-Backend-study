@@ -1,24 +1,23 @@
 package com.example.shop.order;
 
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.example.shop.order.dto.OrderCreateRequest;
 import com.example.shop.order.dto.OrderUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-//orderId, phoneNumber, address, product, date
 public class OrderService {
 
     private final OrderRepository orderRepository;
 
-    //@Transactional
-    public Long createOrder(OrderCreateRequest request) {
+    @Transactional
+    public Long createOrder(OrderCreateRequest request) {//findByOrderId 정의 필요
         Order existingOrder = orderRepository.findByOrderId(request.getOrderId());
 
         if (existingOrder != null) {
@@ -37,12 +36,12 @@ public class OrderService {
         return order.getOrderId();
     }
 
-    //@Transactional(readOnly = true)
+    @Transactional(readOnly = true) //findAll 정의 필요
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }
 
-    //@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Order getOrderById(Long orderId) {
         Order order = orderRepository.findByOrderId(orderId);
 
@@ -53,8 +52,8 @@ public class OrderService {
         return order;
     }
 
-    //@Transactional
-    public void deleteOrder(Long orderId) {
+    @Transactional
+    public void deleteOrder(Long orderId) {//deleteById 정의 필요
         Order order = orderRepository.findByOrderId(orderId);
 
         if (order == null) {
@@ -62,6 +61,6 @@ public class OrderService {
         }
 
         // Repository에서 주문 삭제
-        orderRepository.deleteByOrderId(orderId);
+        orderRepository.deleteById(orderId);
     }
 }

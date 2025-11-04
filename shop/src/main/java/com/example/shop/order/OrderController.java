@@ -1,6 +1,7 @@
 package com.example.shop.order;
 
 import com.example.shop.order.OrderService;
+import com.example.shop.order.dto.OrderCreateRequest;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.type.OrderedSetType;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class OrderController {
     }
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders() {
-        // Service 계층에서 회원 목록을 가져온다
+        // Service 계층에서 주문 목록을 가져온다
         List<Order> orders = orderService.getAllOrders();
         return ResponseEntity.ok(orders);
     }

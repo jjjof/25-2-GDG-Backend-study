@@ -14,12 +14,11 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-//productId, productName, price
 public class ProductService {
 
     private final ProductRepository productRepository;
 
-    //@Transactional
+    @Transactional
     public Long createProduct(ProductCreateRequest request) {
         Product existingProduct = productRepository.findByProductId(request.getProductId());
         if (existingProduct != null) {
@@ -32,17 +31,17 @@ public class ProductService {
                 request.getPrice()
         );
 
-        productRepository.save(product);
+        productRepository.save(product);//findByProductId
 
         return product.getId();
     }
 
-    //@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    //@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Product getProductById(Long productId) {
         Product product = productRepository.findById(productId);
 
@@ -53,7 +52,7 @@ public class ProductService {
         return product;
     }
 
-    //@Transactional
+    @Transactional
     public void updateProduct(Long productId, ProductUpdateRequest request) {
         Product product = productRepository.findById(productId);
 
@@ -64,7 +63,7 @@ public class ProductService {
         product.updateInfo(request.getProductId(), request.getProductName(), request.getPrice());
     }
 
-    //@Transactional
+    @Transactional
     public void deleteProduct(Long productId) {
         Product product = productRepository.findById(productId);
 
